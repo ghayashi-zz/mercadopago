@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="en">
+
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta name="description" content="">
+        <meta name="author" content="Guilherme Hayashi">
+
+        <title>Checkout example for Bootstrap</title>
+
+        <!-- Bootstrap core CSS -->
+        <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" rel="stylesheet">
+
+        <!-- Passo 1: Incluindo a biblioteca do javascript -->
+        <script src="https://secure.mlstatic.com/sdk/javascript/v1/mercadopago.js"></script>
+    </head>
+
+    <body class="bg-light">
+        <div class="container">
+            <div class="py-5 text-center">
+                <img class="d-block mx-auto mb-4" src="https://getbootstrap.com/docs/4.1/assets/brand/bootstrap-solid.svg"
+                    alt="" width="72" height="72">
+                <h2>Custom Checkout</h2>
+                <p class="lead">
+                    Exemplo de formulário para checkout transparente utilizando Mercado Pago.
+                </p>
+            </div>
+
+            <div class="row">
+                <div class="col-md-12 bd-example">
+                    <h4 class="mb-3">Formulário de Pagamento</h4>
+                    <!-- Passo 3: Criando o formulário para receber os pagamentos -->
+                    <form action="create_payment.php" method="post" id="pay" name="pay">
+                        <div class="form-group row">
+                            <label for="email" class="col-sm-3 col-form-label">Email</label>
+                            <div class="col-sm-6">
+                                <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" required>
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="cardNumber" class="col-sm-3 col-form-label">Número do cartão de crédito:</label>
+                            <div class="col-sm-3">
+                                <input type="text" class="form-control" id="cardNumber" data-checkout="cardNumber"
+                                    placeholder="4509 9535 6623 3704" onselectstart="return false" onpaste="return false"
+                                    onCopy="return false" onCut="return false" onDrag="return false" onDrop="return false"
+                                    autocomplete=off required />
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="securityCode" class="col-sm-3 col-form-label">Código de segurança (CVV):</label>
+                            <div class="col-sm-2">
+                                <input type="text" class="form-control" id="securityCode" data-checkout="securityCode"
+                                    placeholder="123" onselectstart="return false" onpaste="return false" onCopy="return false"
+                                    onCut="return false" onDrag="return false" onDrop="return false" autocomplete=off required />
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="cardExpirationMonth" class="col-sm-3 col-form-label">Mes do vencimento:</label>
+                            <div class="col-sm-2">
+                                <input type="text" class="form-control" id="cardExpirationMonth" data-checkout="cardExpirationMonth"
+                                    placeholder="12" onselectstart="return false" onpaste="return false" onCopy="return false"
+                                    onCut="return false" onDrag="return false" onDrop="return false" autocomplete=off required />
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="cardExpirationYear" class="col-sm-3 col-form-label">Ano do vencimento:</label>
+                            <div class="col-sm-2">
+                                <input type="text" class="form-control" id="cardExpirationYear" data-checkout="cardExpirationYear"
+                                    placeholder="2015" onselectstart="return false" onpaste="return false" onCopy="return false"
+                                    onCut="return false" onDrag="return false" onDrop="return false" autocomplete=off required />
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="cardholderName" class="col-sm-3 col-form-label">Nome do titular do cartão:</label>
+                            <div class="col-sm-4">
+                                <input type="text" class="form-control" id="cardholderName" data-checkout="cardholderName"
+                                    placeholder="APRO" required/>
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="docNumber" class="col-sm-3 col-form-label">CPF do titular:</label>
+                            <div class="col-sm-4">
+                                <input type="text" class="form-control" id="docNumber" data-checkout="docNumber"
+                                    placeholder="12345678" required />
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="installments" class="col-sm-3 col-form-label">Parcelas:</label>
+                            <div class="col-sm-4">
+                                <select id="installments" class="form-control" data-checkout="installments" name="installments" required disabled>
+                                    <option value="">Insira o bin do cartão</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <input type="hidden" id="docType" data-checkout="docType" name="docType" value="CPF" />
+                        <input type="hidden" id="paymentMethodId" name="paymentMethodId" />
+                        <input type="hidden" id="transactionAmount" name="transactionAmount" value="100" />
+
+                        <button type="submit" class="btn btn-primary">Pagar !</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <!-- Bootstrap core JavaScript
+    ================================================== -->
+        <!-- Placed at the end of the document so the pages load faster -->
+        <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+        <script>
+            window.jQuery || document.write(
+                '<script src="https://getbootstrap.com/docs/4.1/assets/js/vendor/jquery-slim.min.js"><\/script>')
+        </script>
+        <script src="https://getbootstrap.com/docs/4.1/assets/js/vendor/popper.min.js"></script>
+        <script src="https://getbootstrap.com/docs/4.1/dist/js/bootstrap.min.js"></script>
+        <script src="https://getbootstrap.com/docs/4.1/assets/js/vendor/holder.min.js"></script>
+
+        <!-- Passo 2: Incluindo o index.js que irá conter todas as funcoes do javascript -->
+        <script src="index.js"></script>
+    </body>
+
+</html>

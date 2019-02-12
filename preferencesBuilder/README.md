@@ -40,8 +40,8 @@ Depois de configurado, só acessar colocando o projeto em um servidor PHP (Apach
 
 Clique no link gerar para processar as preferências e obter o link de pagamento.
 
-![Generate](/images/generate.png)
+![Generate](images/generate.png)
 
 Também será gerado o link para o ambiente de sandbox, que deve ser utilizado apenas para testes com os cartões de testes: <https://www.mercadopago.com.br/developers/pt/guides/payments/web-checkout/testing/>
 
-![Generate](/images/sandbox.png)
+![Generate](images/sandbox.png)

@@ -12,7 +12,7 @@ Você deve pegar essas credenciais através do link: <https://www.mercadopago.co
 
 Depois de configurado, só acessar colocando o projeto em um servidor PHP (Apache / nginx)
 
-![Principal](/images/principal.png)
+![Principal](images/principal.png)
 
 ## Dados para preenchimento
 

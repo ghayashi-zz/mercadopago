@@ -498,7 +498,6 @@ class MPRestClient {
     }
 
     private static function exec($request) {
-    // private static function exec($method, $uri, $data, $content_type) {
 
         $connect = self::build_request($request);
 
